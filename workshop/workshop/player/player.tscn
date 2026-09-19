@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://djfy7s5135qm8"]
+
+[ext_resource type="Script" uid="uid://b7nyx21hl4x00" path="res://player/player.gd" id="1_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://cwgjo8l0lmemi" path="res://assets/foxy/fox/fox_idle_1.png" id="2_8t03j"]
+[ext_resource type="Texture2D" uid="uid://cdiupfoo5xr6u" path="res://assets/foxy/fox/fox_idle_2.png" id="3_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://bunb4hruykt3x" path="res://assets/foxy/fox/fox_jump_1.png" id="4_ebec5"]
+[ext_resource type="Texture2D" uid="uid://dowo3wvh7rdu1" path="res://assets/foxy/fox/fox_jump_2.png" id="5_yllr7"]
+[ext_resource type="Texture2D" uid="uid://ddf11anrulx6e" path="res://assets/foxy/fox/fox_walk_1.png" id="6_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://bsfb723jv8ohi" path="res://assets/foxy/fox/fox_walk_2.png" id="7_wodsf"]
+[ext_resource type="Texture2D" uid="uid://bj3ls24dmb1u0" path="res://assets/foxy/fox/fox_walk_3.png" id="8_32hag"]
+[ext_resource type="Texture2D" uid="uid://c7b68c2t2m054" path="res://assets/foxy/fox/fox_walk_4.png" id="9_tqiix"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0s4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8t03j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ieo8")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ebec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yllr7")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kb6p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wodsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_32hag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tqiix")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ql73s"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1596728757]
+script = ExtResource("1_hg6s5")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1270857057]
+offset = Vector2(0, 14)
+pixel_size = 0.0625
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_v0s4m")
+animation = &"idle"
+frame_progress = 0.24306351
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1452356060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0745437, 0)
+shape = SubResource("CapsuleShape3D_ql73s")
